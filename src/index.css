@@ -1,0 +1,33 @@
+/* Reset e Variáveis de Cores Neutras */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+      
+
+        /* --- ADAPTAÇÃO RESPONSIVA (DESKTOP) --- */
+        @media (min-width: 768px) {
+            body {
+                align-items: center;
+                min-height: 100vh;
+                background-color: #e4e4e7;
+            }
+            .phone-container {
+                max-width: 600px; /* Expande um pouco para tablets/desktops mantendo a coesão */
+                padding: 30px;
+            }
+            .card-title {
+                font-size: 13px;
+            }
+        }
