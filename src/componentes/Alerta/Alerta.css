@@ -1,0 +1,21 @@
+/* 3. Alert Banner */
+.alert-banner {
+    border: 2px solid #777;
+    border-radius: 6px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #fafafa;
+}
+
+.alert-icon {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.alert-text {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}

@@ -1,0 +1,43 @@
+/* 4. Footer (Sobre o Projeto) */
+footer {
+    border: 2px solid #777;
+    background-color: #fafafa;
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: auto; /* Garante que ele fique sempre colado na base se o conteúdo for menor */
+}
+
+.footer-logo-round {
+    width: 75px;
+    height: 75px;
+    border: 2px solid #777;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-content h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer-content p {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.3;
+}

@@ -1,0 +1,50 @@
+/* 2. Grid de Botões de Acesso */
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.access-card {
+    border: 2px solid #777;
+    border-radius: 16px;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 140px;
+    cursor: pointer;
+    background-color: #fafafa;
+    text-decoration: none;
+    color: inherit;
+     transition: all 0.2s ease;
+}
+
+.access-card:hover {
+    transform: translateY(-2px);
+}
+
+.access-card:active {
+    transform: scale(0.98);
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #777;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.card-title {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
