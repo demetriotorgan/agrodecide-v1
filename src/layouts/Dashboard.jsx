@@ -1,9 +1,9 @@
 import React from 'react'
 import './Dashboard.css'
-import Header from './header/Header'
-import Menu from './Menu/Menu'
-import Alerta from './Alerta/Alerta'
-import Footer from './Footer/Footer'
+import Header from '../componentes/header/Header'
+import Menu from '../componentes/Menu/Menu'
+import Alerta from '../componentes/Alerta/Alerta'
+import Footer from '../componentes/Footer/Footer'
 
 const Dashboard = () => {
   return (
