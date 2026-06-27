@@ -1,9 +1,12 @@
 import React from 'react'
+import Menu from '../componentes/Menu/Menu'
+import Alerta from '../componentes/Alerta/Alerta'
 
 const Home = () => {
   return (
     <>
-    <div>Home</div>
+    <Menu />
+    <Alerta />
     </>
     
   )

@@ -1,28 +1,30 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Menu = () => {
   return (
     <>
      <section className="access-grid">
-          <article className="access-card">
+          
+          <Link to="/previsao" className="access-card">
             <div className="card-icon">☁️</div>
             <div className="card-title">Consultar Previsões Climáticas</div>
-          </article>
+          </Link>
           
-          <article className="access-card">
+          <Link to="/indicadores" className="access-card">
             <div className="card-icon">📊</div>
             <div className="card-title">Visualizar Indicadores Climáticos</div>
-          </article>
+          </Link>
           
-          <article className="access-card">
+          <Link to="/historico" className="access-card">
             <div className="card-icon">↩️</div>
             <div className="card-title">Consultar Histórico Climático</div>
-          </article>
+          </Link>
           
-          <article className="access-card">
+          <Link to="/comparacao" className="access-card">
             <div className="card-icon">🌐</div>
             <div className="card-title">Comparar Períodos Climáticos</div>
-          </article>
+          </Link>
         </section>
     </>
   )

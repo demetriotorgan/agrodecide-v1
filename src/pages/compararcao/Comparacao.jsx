@@ -3,7 +3,7 @@ import React from 'react'
 const Comparacao = () => {
   return (
     <>
-    <p>Histórico</p>
+    <p>Comparação</p>
     </>
   )
 }

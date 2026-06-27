@@ -4,15 +4,10 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Dashboard from './layouts/Dashboard'
+import AppRoutes from './routes/AppRoutes'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-     <Dashboard />
-    </>
-  )
+function App() {  
+  return <AppRoutes/>
 }
 
 export default App
