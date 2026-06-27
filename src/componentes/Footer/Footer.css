@@ -11,7 +11,7 @@ footer {
     margin-top: auto; /* Mantém o footer na base do app */
     margin-left: -16px;  /* Ajuste para esticar até as bordas do container mobile */
     margin-right: -16px;
-    margin-bottom: -30px; /* Anula o padding inferior do phone-container */
+    /* margin-bottom: -30px;  */
 }
 
 /* Container do Logo Redondo */
