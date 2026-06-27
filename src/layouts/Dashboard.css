@@ -4,9 +4,8 @@
     max-width: 412px; /* Largura padrão de smartphone */
     min-height: 100vh; /* Ocupa 100% da altura da tela */
     min-height: 100dvh; /* Suporte dinâmico para navegadores mobile reais */
-    background-color: #ffffff;   
-    box-sizing: border-box;
-    padding: 20px 16px;
+    background-color: var(--color-background);
+    box-sizing: border-box;    
     display: flex;
     flex-direction: column;
     gap: 20px;  

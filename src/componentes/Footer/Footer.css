@@ -1,43 +1,54 @@
-/* 4. Footer (Sobre o Projeto) */
+/* ==========================================================================
+   4. FOOTER (SOBRE O PROJETO)
+   ========================================================================== */
 footer {
-    border: 2px solid #777;
-    background-color: #fafafa;
-    padding: 16px;
+    background-color: var(--color-primary-dark); /* Fundo verde escuro idêntico ao layout */
+    color: var(--color-white); /* Texto principal branco */
+    padding: 24px 16px; /* Espaçamento interno mais confortável */
     display: flex;
     gap: 16px;
     align-items: center;
-    margin-top: auto; /* Garante que ele fique sempre colado na base se o conteúdo for menor */
+    margin-top: auto; /* Mantém o footer na base do app */
+    margin-left: -16px;  /* Ajuste para esticar até as bordas do container mobile */
+    margin-right: -16px;
+    margin-bottom: -30px; /* Anula o padding inferior do phone-container */
 }
 
+/* Container do Logo Redondo */
 .footer-logo-round {
-    width: 75px;
-    height: 75px;
-    border: 2px solid #777;
-    border-radius: 50%;
+    width: 90px;  /* Ajustado para dar uma leitura melhor aos textos internos do selo */
+    height: 90px; 
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-    flex-shrink: 0;
+    justify-content: center; 
+    margin-left: 10px;   
+    flex-shrink: 0; /* Garante que o logo não seja esmagado em telas menores */
 }
 
+/* Garante que a imagem preencha o container perfeitamente */
+.footer-logo-round img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Bloco de Texto Lateral */
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
 }
 
 .footer-content h3 {
-    font-size: 13px;
+    color: var(--color-background);
+    font-size: 15px;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .footer-content p {
-    font-size: 11px;
-    color: #666;
-    line-height: 1.3;
+    font-size: 12px;
+    color: var(--color-background); /* Verde claro para dar uma hierarquia visual sutil no texto descritivo */
+    line-height: 1.4;
 }

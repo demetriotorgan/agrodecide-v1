@@ -3,11 +3,15 @@ import React from 'react'
 import './Alerta.css'
 
 const Alerta = () => {
+    // Exemplo de texto dinâmico que mudaria dependendo da API
+    const mensagemAlerta = "Atenção: Previsão de chuvas excessivas para os próximos 3 dias."
     return (
         <>
-            <div className="alert-banner" role="alert">
-                <span className="alert-icon"><TriangleAlert /></span>
-                <span className="alert-text">Gerar Alertas Climáticos Importantes</span>
+            <div className="alert-banner">
+                <div className="alert-icon">
+                    <TriangleAlert />
+                </div>
+                <p className="alert-message">{mensagemAlerta}</p>
             </div>
         </>
     )
