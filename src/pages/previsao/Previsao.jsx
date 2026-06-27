@@ -5,9 +5,11 @@ import ListaPrevisao from '../../componentes/ListaPrevisao/ListaPrevisao';
 import { getWeatherIcon } from '../../util/weatherIcons';
 import ResumoPrevisao from '../../componentes/ResumoPrevisao/ResumoPrevisao';
 import { calcularChuvaAcumulada } from '../../util/calcularChuvaAcumulada';
+import { useNavigate } from 'react-router-dom';
 
 const Previsao = () => {
   // Dados vindos do endpoint JSON que analisámos
+  const navigate = useNavigate();
   const weatherCode = 'rain';
   const WeatherIcon = getWeatherIcon(weatherCode);
 
@@ -35,7 +37,7 @@ const Previsao = () => {
     <>
       <div className="clima-page-container">
         {/* Botão voltar no topo */}
-        <BotaoVoltar onClick={() => console.log('Voltar para Home')} />
+        <BotaoVoltar onClick={() => navigate('/', { replace: true })} />
 
         {/* Nova Seção: Destaque da Previsão */}
         <section className="previsao-destaque-card">

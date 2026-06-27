@@ -3,7 +3,7 @@ import './BotaoVoltar.css'
 
 const BotaoVoltar = ({onClick}) => {
   return (
-    <button className="btn-voltar" type="button">
+    <button className="btn-voltar" onClick={onClick} type="button">
       <svg 
         className="btn-voltar-icon" 
         viewBox="0 0 24 24" 
