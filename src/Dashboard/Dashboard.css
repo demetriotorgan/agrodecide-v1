@@ -15,40 +15,15 @@ html, body, #root {
     max-width: 412px; /* Largura padrão de smartphone */
     min-height: 100vh; /* Ocupa 100% da altura da tela */
     min-height: 100dvh; /* Suporte dinâmico para navegadores mobile reais */
-    background-color: #ffffff;
-    border-left: 4px solid #ccc; /* Mantém a aparência de mockup apenas nas laterais */
-    border-right: 4px solid #ccc;
+    background-color: #ffffff;   
     box-sizing: border-box;
     padding: 20px 16px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    gap: 20px;  
 }
 
-/* 1. Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 15px;
-    border-bottom: 2px dashed #ddd;
-}
 
-.logo-placeholder {
-    border: 2px solid #555;
-    padding: 6px 12px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.contact-btn {
-    border: 2px solid #555;
-    padding: 6px 12px;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 500;
-}
 
 /* Conteúdo Principal */
 main {
