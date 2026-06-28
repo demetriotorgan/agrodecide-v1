@@ -6,31 +6,22 @@ import { getWeatherIcon } from '../../util/weatherIcons';
 import ResumoPrevisao from '../../componentes/ResumoPrevisao/ResumoPrevisao';
 import { calcularChuvaAcumulada } from '../../util/calcularChuvaAcumulada';
 import { useNavigate } from 'react-router-dom';
+import { useWeather } from '../../hooks/useWeather';
+
 
 const Previsao = () => {
   // Dados vindos do endpoint JSON que analisámos
   const navigate = useNavigate();
   const weatherCode = 'rain';
   const WeatherIcon = getWeatherIcon(weatherCode);
+  const {dadosApi, loading} = useWeather();
 
-  const dadosApiMock = {
-     elevation: 333.0,
-    "daily": {
-      "time": [
-        "2026-06-27",
-        "2026-06-28",
-        "2026-06-29",
-        "2026-06-30",
-        "2026-07-01",
-        "2026-07-02",
-        "2026-07-03"
-      ],
-      "precipitation_sum": [0.30, 1.30, 0.40, 0.00, 0.00, 0.00, 0.00]
-    }
+  if(loading){
+    return <p>Carregando...</p>;
   };
-
+  
   const chuvaAcumulada = calcularChuvaAcumulada(
-  dadosApiMock.daily.precipitation_sum
+  dadosApi.daily.precipitation_sum
 );
 
   return (
@@ -57,13 +48,13 @@ const Previsao = () => {
 
         {/* LISTA DOS 7 DIAS COMPONETIZADA */}
         <ListaPrevisao
-          time={dadosApiMock.daily.time}
-          precipitationSum={dadosApiMock.daily.precipitation_sum}
+          time={dadosApi.daily.time}
+          precipitationSum={dadosApi.daily.precipitation_sum}
         />
         
         {/* Resumo da previsao */}
         <ResumoPrevisao
-          dadosApi={dadosApiMock}
+          dadosApi={dadosApi}
           chuvaAcumulada={chuvaAcumulada}
         />
 

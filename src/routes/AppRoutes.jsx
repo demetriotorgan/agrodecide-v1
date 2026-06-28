@@ -6,20 +6,24 @@ import Previsao from '../pages/previsao/Previsao'
 import Indicadores from '../pages/indicadores/Indicadores'
 import Historico from '../pages/historico/Historico'
 import Comparacao from '../pages/compararcao/Comparacao'
+import { WeatherProvider } from '../context/WeatherContext'
 
 const AppRoutes = () => {
   return (
-    <BrowserRouter>
+    <WeatherProvider>
+      <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Dashboard/>}>
-            <Route index element={<Home />} />            
-              <Route path='previsao' element={<Previsao/>}/>
-              <Route path='indicadores' element={<Indicadores/>}/>
-              <Route path='historico' element={<Historico/>}/>
-              <Route path='comparacao' element={<Comparacao/>}/>
-              </Route>
+          <Route path='/' element={<Dashboard />}>
+            <Route index element={<Home />} />
+            <Route path='previsao' element={<Previsao />} />
+            <Route path='indicadores' element={<Indicadores />} />
+            <Route path='historico' element={<Historico />} />
+            <Route path='comparacao' element={<Comparacao />} />
+          </Route>
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </WeatherProvider>
+
   )
 }
 
