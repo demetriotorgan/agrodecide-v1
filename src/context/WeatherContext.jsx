@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getWeather } from "../services/weatherService";
+import { getCurrentLocation } from "../util/geolocation";
 
 export const WeatherContext = createContext();
 
@@ -10,7 +11,8 @@ export function WeatherProvider({children}){
     useEffect(()=>{
         async function carregarDados(){
             try {
-                const dados = await getWeather();
+                const {latitude, longitude } = await getCurrentLocation();
+                const dados = await getWeather({latitude, longitude});
                 setDadosApi(dados);
             } catch (error) {
                 console.error('Erro ao carregar dados de clima: ', error);

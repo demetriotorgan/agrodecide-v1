@@ -1,17 +1,28 @@
-export async function getWeather() {
-  return {
-    elevation: 333.0,
-    daily: {
-      time: [
-        "2026-06-27",
-        "2026-06-28",
-        "2026-06-29",
-        "2026-06-30",
-        "2026-07-01",
-        "2026-07-02",
-        "2026-07-03"
-      ],
-      precipitation_sum: [0.30, 1.30, 0.40, 0.00, 0.00, 0.00, 0.00]
+import api from './api'
+
+export const getWeather = async ({ latitude, longitude }) => {
+
+  const response = await api.get("/forecast", {
+    params: {
+      latitude,
+      longitude,
+
+      daily: [
+        "weather_code",
+        "temperature_2m_max",
+        "temperature_2m_min",
+        "precipitation_sum",
+        "precipitation_probability_max"
+      ].join(","),
+
+      hourly: [
+        "temperature_2m",
+        "relative_humidity_2m",
+        "wind_speed_10m",
+        "precipitation_probability"
+      ].join(",")
     }
-  };
+  });
+
+  return response.data;
 }
