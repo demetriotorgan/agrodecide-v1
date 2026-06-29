@@ -1,3 +1,4 @@
+import { weatherMapper } from '../mappers/weatherMapper';
 import api from './api'
 
 export const getWeather = async ({ latitude, longitude }) => {
@@ -24,5 +25,5 @@ export const getWeather = async ({ latitude, longitude }) => {
     }
   });
 
-  return response.data;
+  return weatherMapper(response.data);
 }

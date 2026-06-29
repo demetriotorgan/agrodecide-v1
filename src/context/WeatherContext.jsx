@@ -13,6 +13,7 @@ export function WeatherProvider({children}){
             try {
                 const {latitude, longitude } = await getCurrentLocation();
                 const dados = await getWeather({latitude, longitude});
+                // console.log(dados);
                 setDadosApi(dados);
             } catch (error) {
                 console.error('Erro ao carregar dados de clima: ', error);

@@ -7,22 +7,31 @@ import ResumoPrevisao from '../../componentes/ResumoPrevisao/ResumoPrevisao';
 import { calcularChuvaAcumulada } from '../../util/calcularChuvaAcumulada';
 import { useNavigate } from 'react-router-dom';
 import { useWeather } from '../../hooks/useWeather';
+import { formatarData } from '../../util/formatarData';
+import { obterIconeClima } from '../../util/obterIconeClima';
 
 
 const Previsao = () => {
   // Dados vindos do endpoint JSON que analisámos
   const navigate = useNavigate();
-  const weatherCode = 'rain';
-  const WeatherIcon = getWeatherIcon(weatherCode);
-  const {dadosApi, loading} = useWeather();
+  const weatherCode = 'rain';  
+  const { dadosApi, loading } = useWeather();
 
-  if(loading){
+  if (loading) {
     return <p>Carregando...</p>;
-  };
-  
+  };  
+
   const chuvaAcumulada = calcularChuvaAcumulada(
-  dadosApi.daily.precipitation_sum
-);
+    dadosApi.daily.precipitation_sum
+  );
+
+  const dataHoje = dadosApi.hoje.data;
+
+  const WeatherIcon = obterIconeClima({
+  codigoClima: dadosApi.hoje.codigoClima,
+  chuva: dadosApi.hoje.chuva,
+  chanceChuva: dadosApi.hoje.chanceChuva
+});
 
   return (
     <>
@@ -34,28 +43,27 @@ const Previsao = () => {
         <section className="previsao-destaque-card">
           <div className="destaque-info-esquerda">
             <h2 className="destaque-titulo">Previsão para os próximos dias</h2>
-            <p className="destaque-data">Hoje (27/06)</p>
+            <p className="destaque-data">Hoje {formatarData(dataHoje)}</p>
             <p className="destaque-chuva">
-              Chuva Prevista: <strong>3.1 mm</strong>
+              Chuva Prevista: <strong>{dadosApi.hoje.chuva.toFixed(1)}mm</strong>
             </p>
+            <small>Chance de Chuva: {dadosApi.hoje.chanceChuva}%</small>
           </div>
 
           {/* SVG */}
           <div className="destaque-icone-direita">
-            <WeatherIcon />
+            <WeatherIcon size={28} />
           </div>
         </section>
 
         {/* LISTA DOS 7 DIAS COMPONETIZADA */}
         <ListaPrevisao
-          time={dadosApi.daily.time}
-          precipitationSum={dadosApi.daily.precipitation_sum}
+          previsaoDias={dadosApi.previsaoDias}
         />
-        
+
         {/* Resumo da previsao */}
         <ResumoPrevisao
-          dadosApi={dadosApi}
-          chuvaAcumulada={chuvaAcumulada}
+          dadosApi={dadosApi}          
         />
 
       </div>
