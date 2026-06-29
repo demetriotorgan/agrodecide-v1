@@ -9,17 +9,18 @@ import { useNavigate } from 'react-router-dom';
 import { useWeather } from '../../hooks/useWeather';
 import { formatarData } from '../../util/formatarData';
 import { obterIconeClima } from '../../util/obterIconeClima';
+import { Droplets, Thermometer, CloudRain } from 'lucide-react';
 
 
 const Previsao = () => {
   // Dados vindos do endpoint JSON que analisámos
   const navigate = useNavigate();
-  const weatherCode = 'rain';  
+  const weatherCode = 'rain';
   const { dadosApi, loading } = useWeather();
 
   if (loading) {
     return <p>Carregando...</p>;
-  };  
+  };
 
   const chuvaAcumulada = calcularChuvaAcumulada(
     dadosApi.daily.precipitation_sum
@@ -28,10 +29,10 @@ const Previsao = () => {
   const dataHoje = dadosApi.hoje.data;
 
   const WeatherIcon = obterIconeClima({
-  codigoClima: dadosApi.hoje.codigoClima,
-  chuva: dadosApi.hoje.chuva,
-  chanceChuva: dadosApi.hoje.chanceChuva
-});
+    codigoClima: dadosApi.hoje.codigoClima,
+    chuva: dadosApi.hoje.chuva,
+    chanceChuva: dadosApi.hoje.chanceChuva
+  });
 
   return (
     <>
@@ -42,17 +43,27 @@ const Previsao = () => {
         {/* Nova Seção: Destaque da Previsão */}
         <section className="previsao-destaque-card">
           <div className="destaque-info-esquerda">
-            <h2 className="destaque-titulo">Previsão para os próximos dias</h2>
-            <p className="destaque-data">Hoje {formatarData(dataHoje)}</p>
-            <p className="destaque-chuva">
-              Chuva Prevista: <strong>{dadosApi.hoje.chuva.toFixed(1)}mm</strong>
-            </p>
-            <small>Chance de Chuva: {dadosApi.hoje.chanceChuva}%</small>
+            <h2 className="destaque-titulo">Previsão para hoje</h2>
+            <p className="destaque-data">{formatarData(dataHoje)}</p>
+
+            <div className="destaque-detalhes-grid">
+              <div className="detalhe-item highlight">
+                <WeatherIcon size={18} />
+                <span>Chuva: <strong>{dadosApi.hoje.chuva.toFixed(1)} mm</strong></span>
+              </div>
+              <div className="detalhe-item">
+                <Droplets size={18} />
+                <span>Chance: <strong>{dadosApi.hoje.chanceChuva}%</strong></span>
+              </div>
+              <div className="detalhe-item">
+                <Thermometer size={18} />
+                <span>Agora: <strong>{dadosApi.resumoHorario.temperaturaAtual}°C</strong></span>
+              </div>              
+            </div>
           </div>
 
-          {/* SVG */}
           <div className="destaque-icone-direita">
-            <WeatherIcon size={28} />
+            <WeatherIcon size={32} />
           </div>
         </section>
 
@@ -63,7 +74,7 @@ const Previsao = () => {
 
         {/* Resumo da previsao */}
         <ResumoPrevisao
-          dadosApi={dadosApi}          
+          dadosApi={dadosApi}
         />
 
       </div>

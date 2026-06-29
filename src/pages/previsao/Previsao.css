@@ -18,11 +18,22 @@
     gap: 6px;
 }
 
+.destaque-detalhes-grid{
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.detalhe-item  span{
+    margin-left: 10px;
+}
+
 .destaque-titulo {
     font-size: 16px;
     color: var(--color-primary-dark);
     font-weight: 700;
-    margin: 0;
+    margin: 0;    
 }
 
 .destaque-data {
@@ -41,6 +52,10 @@
 .destaque-chuva strong {
     font-weight: bold;
     color: var(--color-primary-dark);
+}
+
+.detalhe-item{
+    padding: 5px;
 }
 
 /* Lado Direito - Container do Ícone */
