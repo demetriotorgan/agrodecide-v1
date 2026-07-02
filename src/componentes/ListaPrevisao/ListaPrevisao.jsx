@@ -12,12 +12,12 @@ const ListaPrevisao = ({ previsaoDias = [] }) => {
         const ehHoje = index === 0;
         const WeatherIcon = obterIconeClima(dia);
 
-        console.log({
-          data: dia.data,
-          codigo: dia.codigoClima,
-          chuva: dia.chuva,
-          chance: dia.chanceChuva
-        });
+        // console.log({
+        //   data: dia.data,
+        //   codigo: dia.codigoClima,
+        //   chuva: dia.chuva,
+        //   chance: dia.chanceChuva
+        // });
 
         return (
           <div
