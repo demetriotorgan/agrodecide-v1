@@ -8,7 +8,7 @@ const LoadingTrator = () => {
       <div className="loading-content">
         {/* O ícone do trator ganha uma classe para a animação */}
         <Tractor className="trator-animado" size={64} />
-        <p className="loading-texto">A carregar dados do campo...</p>
+        <p className="loading-texto">Carregando dados do campo...</p>
       </div>
     </div>
   )
