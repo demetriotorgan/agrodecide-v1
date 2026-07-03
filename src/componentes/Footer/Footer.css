@@ -4,24 +4,22 @@
 footer {
     background-color: var(--color-primary-dark); /* Fundo verde escuro idêntico ao layout */
     color: var(--color-white); /* Texto principal branco */
-    padding: 24px 16px; /* Espaçamento interno mais confortável */
+    padding: 24px 16px; /* Espaçamento interno confortável */
     display: flex;
     gap: 16px;
     align-items: center;
-    margin-top: auto; /* Mantém o footer na base do app */
-    margin-left: -16px;  /* Ajuste para esticar até as bordas do container mobile */
-    margin-right: -16px;
-    /* margin-bottom: -30px;  */
+    width: 100%; /* Garante preenchimento total */
+    box-sizing: border-box;
+    margin-top: auto; /* Mantém o footer na base absoluta do app */
 }
 
 /* Container do Logo Redondo */
 .footer-logo-round {
-    width: 90px;  /* Ajustado para dar uma leitura melhor aos textos internos do selo */
-    height: 90px; 
+    width: 80px;  /* Ajustado levemente para encaixar melhor na proporção mobile sem empurrar o texto */
+    height: 80px; 
     display: flex;
     align-items: center;
     justify-content: center; 
-    margin-left: 10px;   
     flex-shrink: 0; /* Garante que o logo não seja esmagado em telas menores */
 }
 
@@ -36,19 +34,21 @@ footer {
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
 }
 
 .footer-content h3 {
     color: var(--color-background);
-    font-size: 15px;
+    font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.5px;
+    margin: 0;
 }
 
 .footer-content p {
-    font-size: 12px;
-    color: var(--color-background); /* Verde claro para dar uma hierarquia visual sutil no texto descritivo */
+    font-size: 11px;
+    color: rgba(255, 244, 225, 0.85); /* Tom suave usando a cor de background com opacidade */
     line-height: 1.4;
+    margin: 0;
 }
