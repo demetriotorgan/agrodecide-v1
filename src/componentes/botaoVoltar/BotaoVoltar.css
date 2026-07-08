@@ -25,6 +25,7 @@
   transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
   
   /* Margem para não colar nos elementos ao redor (ajuste conforme a tela) */
+  margin-top: 10px;
   margin-left: 10px;  
 }
 
