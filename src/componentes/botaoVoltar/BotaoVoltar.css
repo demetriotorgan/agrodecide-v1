@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  max-width: 100px;
 
   /* Cores baseadas nas variáveis globais */
   background-color: var(--color-primary);

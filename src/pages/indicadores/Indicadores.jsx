@@ -1,21 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Thermometer, CloudRain, CheckCircle, XCircle, Brain, ArrowLeft } from 'lucide-react';
 import './Indicadores.css';
 import { useWeather } from '../../hooks/useWeather';
 import LoadingTrator from '../../assets/LoadingTrator/LoadingTrator'
 import { obterIconeFator } from '../../util/obterIconeFator';
-
+import BotaoVoltar from '../../componentes/botaoVoltar/BotaoVoltar'
+import { Navigate, useNavigate } from 'react-router-dom';
 const Indicadores = () => {
   const { dadosApi, loading } = useWeather();
-
+  
   if (loading) {
     return <LoadingTrator />
   }
 
   const { plantio } = dadosApi.indices;
+  const textoCompleto = dadosApi?.analises.analiseDePlantio || 'Nenhuma recomendação disponível';
+
+  const [textoExibido, setTextoExibido] = useState('');
+  const [estaDigitando, setEstaDigitando] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Toda vez que o insight mudar, reinicia o efeito de digitação
+    setTextoExibido('');
+    setEstaDigitando(true);
+
+    let index = 0;
+
+    // Define a velocidade da digitação (em milissegundos por caractere)
+    const velocidade = 25;
+
+    const temporizador = setInterval(() => {
+      if (index < textoCompleto.length) {
+        // Adiciona o próximo caractere usando a referência mais atual do index
+        setTextoExibido(() => textoCompleto.slice(0, index + 1));
+        index++;
+      } else {
+        // Quando terminar de digitar tudo, limpa o intervalo e desativa o cursor
+        clearInterval(temporizador);
+        setEstaDigitando(false);
+      }
+    }, velocidade);
+
+    // Função de limpeza caso o componente seja desmontado antes de terminar
+    return () => clearInterval(temporizador);
+  }, [textoCompleto]);
+
 
   return (
     <>
+      <BotaoVoltar onClick={() => navigate('/', { replace: true })} />
       <div className="indicadores-container">
 
         <div className="indicadores-header">
@@ -82,9 +116,12 @@ const Indicadores = () => {
             <Brain size={20} />
             <h4>Análise Inteligente (Groq)</h4>
           </div>
-          <p className="banner-ia-texto">{dadosApi.analises.analiseDePlantio}</p>
+          <p className="banner-ia-texto">
+            {textoExibido}
+            {estaDigitando && <span className="cursor">|</span>}
+          </p>
         </div>
-        
+
       </div>
     </>
   );
