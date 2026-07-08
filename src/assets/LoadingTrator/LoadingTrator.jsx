@@ -1,17 +1,45 @@
-import React from 'react'
-import { Tractor } from 'lucide-react';
+import React from 'react';
+import {
+  Tractor,
+  AlertTriangle
+} from 'lucide-react';
+
 import './LoadingTrator.css';
 
-const LoadingTrator = () => {
+const LoadingTrator = ({ erro }) => {
+
+  if (erro) {
+    return (
+      <div className="loading-container">
+        <div className="loading-content">
+
+          <AlertTriangle size={64} />
+
+          <p className="loading-texto">
+            {erro}
+          </p>
+
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="loading-container">
       <div className="loading-content">
-        {/* O ícone do trator ganha uma classe para a animação */}
-        <Tractor className="trator-animado" size={64} />
-        <p className="loading-texto">Carregando dados do campo...</p>
+
+        <Tractor
+          className="trator-animado"
+          size={64}
+        />
+
+        <p className="loading-texto">
+          Carregando dados do campo...
+        </p>
+
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoadingTrator
+export default LoadingTrator;

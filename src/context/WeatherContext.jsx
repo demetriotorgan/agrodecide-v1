@@ -7,6 +7,7 @@ export const WeatherContext = createContext();
 export function WeatherProvider({children}){
     const [dadosApi, setDadosApi] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(()=>{
         async function carregarDados(){
@@ -16,7 +17,17 @@ export function WeatherProvider({children}){
                 // console.log(dados);
                 setDadosApi(dados);
             } catch (error) {
-                console.error('Erro ao carregar dados de clima: ', error);
+                 console.log('CATCH:', error);
+
+                 console.error(
+                    'Erro ao carregar dados de clima:',
+                    error
+                );
+
+                setError(
+                    error.message ||
+                    'Não foi possível carregar os dados climáticos.'
+                );
             }finally{
                 setLoading(false);
             }
@@ -25,7 +36,7 @@ export function WeatherProvider({children}){
     },[]);
 
     return(
-        <WeatherContext.Provider value={{dadosApi, loading}}>
+        <WeatherContext.Provider value={{dadosApi, loading, error}}>
             {children}
         </WeatherContext.Provider>
     );

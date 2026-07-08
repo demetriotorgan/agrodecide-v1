@@ -6,17 +6,25 @@ import LoadingTrator from '../assets/LoadingTrator/LoadingTrator';
 
 
 const Home = () => {
-  const {dadosApi, loading} = useWeather();
-
-  if(loading){
+  const { dadosApi, loading, error } = useWeather(); 
+  
+  if (loading) {
     return <LoadingTrator />
+  }
+
+  if (error) {
+    return (
+      <LoadingTrator
+        erro={error}
+      />
+    );
   }
   return (
     <>
-    <Menu />
-    <Alerta dadosApi={dadosApi} />
+      <Menu />
+      <Alerta dadosApi={dadosApi} />
     </>
-    
+
   )
 }
 
