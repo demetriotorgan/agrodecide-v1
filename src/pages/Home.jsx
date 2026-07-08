@@ -3,6 +3,7 @@ import Menu from '../componentes/Menu/Menu'
 import Alerta from '../componentes/Alerta/Alerta'
 import { useWeather } from '../hooks/useWeather';
 import LoadingTrator from '../assets/LoadingTrator/LoadingTrator';
+import Banner from '../componentes/Banner/Banner';
 
 
 const Home = () => {
@@ -21,8 +22,10 @@ const Home = () => {
   }
   return (
     <>
-      <Menu />
+      <Banner dadosApi={dadosApi} />
       <Alerta dadosApi={dadosApi} />
+      <Menu />
+      
     </>
 
   )

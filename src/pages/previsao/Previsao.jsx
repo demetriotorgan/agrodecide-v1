@@ -13,7 +13,7 @@ import { Droplets, Thermometer, CloudRain } from 'lucide-react';
 
 
 const Previsao = () => {
-  // Dados vindos do endpoint JSON que analisámos
+  
   const navigate = useNavigate();
   const weatherCode = 'rain';
   const { dadosApi, loading } = useWeather();
