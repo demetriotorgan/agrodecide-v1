@@ -7,6 +7,8 @@ import Indicadores from '../pages/indicadores/Indicadores'
 import Historico from '../pages/historico/Historico'
 import Comparacao from '../pages/compararcao/Comparacao'
 import { WeatherProvider } from '../context/WeatherContext'
+import PlantioIndice from '../componentes/IndicesClimaticos/Plantio/PlantioIndice'
+import IrrigacaoIndice from '../componentes/IndicesClimaticos/Irrigacao/IrrigacaoIndice'
 
 const AppRoutes = () => {
   return (
@@ -16,7 +18,11 @@ const AppRoutes = () => {
           <Route path='/' element={<Dashboard />}>
             <Route index element={<Home />} />
             <Route path='previsao' element={<Previsao />} />
+            
             <Route path='indicadores' element={<Indicadores />} />
+            <Route path='indicadores/plantio' element={<PlantioIndice/>}/>
+            <Route path='indicadores/irrigacao' element={<IrrigacaoIndice/>}/>
+
             <Route path='historico' element={<Historico />} />
             <Route path='comparacao' element={<Comparacao />} />
           </Route>

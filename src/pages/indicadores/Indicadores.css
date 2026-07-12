@@ -1,20 +1,31 @@
 .indicadores-container {
-  display: flex;
+  display: flex;  
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   width: 100%;
   padding: 15px;
+  gap: 15px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.componentes-indicador{
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--color-primary);
 }
 
 .indicadores-header {
   display: flex;
   align-items: center;
   gap: 12px;
+  color: var(--color-white);
 }
 
 .indicadores-header h2 {
-  font-size: 1.25rem;
-  color: var(--color-primary-dark);
+  font-size: 1.25rem;  
   margin: 0;
 }
 
@@ -184,4 +195,60 @@
   font-size: 0.85rem;
   line-height: 1.45;
   color: #e0f2f1;
+}
+
+/* --------------CARD INDICADORES---------- */
+
+.card-imagem img{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.card-info-container{
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.card-indice{
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.card-chuva{
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.card-temperatura{
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.card-indicador button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
