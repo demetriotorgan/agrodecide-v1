@@ -63,7 +63,12 @@
 
 .status-baixa {
   background-color: #ffebee;
-  color: #c62828;
+  color: var(--color-primary);
+}
+
+.status-alta {
+  background-color: #ffebee;
+  color: red;
 }
 
 /* 1. Gráfico de Barra Horizontal */
@@ -83,6 +88,10 @@
 
 /* Cor dinâmica para o progresso */
 .progresso-baixa {
+  background-color: var(--color-primary);
+}
+
+.progresso-alta {
   background-color: #d32f2f;
 }
 

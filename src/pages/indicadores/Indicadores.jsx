@@ -9,14 +9,21 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import PlantioIndice from '../../componentes/IndicesClimaticos/Plantio/PlantioIndice';
 import cardPlantio from '../../assets/indicePlantio.png'
 import cardIrrigacao from '../../assets/indiceIrrigacao.png'
+import { calcularUmidadeMediaSemanal } from '../../util/calcularUmidadeMediaSemanal';
 
 const Indicadores = () => {
-  const { loading } = useWeather();
+  const { dadosApi,loading } = useWeather();
   const navigate = useNavigate();
 
   if (loading) {
     return <LoadingTrator />
   }
+
+  const {plantio} = dadosApi.indices
+  const {irrigacao} = dadosApi.indices
+
+  const mediaUmidade = calcularUmidadeMediaSemanal(dadosApi.hourly);
+  
 
   return (
     <>
@@ -35,17 +42,17 @@ const Indicadores = () => {
               <div className='card-indice'>
                 <Leaf />
                 <small>Indice</small>
-                <h2>30%</h2>
+                <h2>{plantio.indicePlantio}%</h2>
               </div>
               <div className='card-chuva'>
                 <CloudHail />
                 <small>Chuva (7d)</small>
-                <h2>12mm</h2>
+                <h2>{plantio.precipitacaoAcumulada}mm</h2>
               </div>
               <div className='card-temperatura'>
                 <ThermometerSun />
                 <small>Temperatura (7d)</small>
-                <h2>23°C</h2>
+                <h2>{plantio.temperaturaMedia.toFixed(1)}°C</h2>
               </div>            
           </div>
           <button 
@@ -68,17 +75,18 @@ const Indicadores = () => {
               <div className='card-indice'>
                 <Droplet />
                 <small>Indice</small>
-                <h2>30%</h2>
+                <h2>{irrigacao.indiceIrrigacao}%</h2>
               </div>
               <div className='card-chuva'>
                 <Rose />
-                <small>ETo (7d)</small>
-                <h2>12mm</h2>
+                <small>ETo(mm/dia)</small>
+                
+                <h2>{irrigacao.evapotranspiracaoAcumulada.toFixed(1)}</h2>
               </div>
               <div className='card-temperatura'>
                 <Droplets />
                 <small>Umidade (7d)</small>
-                <h2>23°C</h2>
+                <h2>{mediaUmidade}%</h2>
               </div>            
           </div>
           <button 

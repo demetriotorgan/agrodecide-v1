@@ -11,16 +11,15 @@ const PlantioIndice = () => {
   const { dadosApi, loading } = useWeather();
   const navigate = useNavigate();
 
-  if (loading) {
-    return <LoadingTrator />
-  }
-
-  const { plantio } = dadosApi.indices;
-  console.log('dadosApi: ', dadosApi);
-
   const textoAnalisePlantio = dadosApi?.analises.analiseDePlantio || 'Nenhuma recomendação disponível';
   const { textoExibido, estaDigitando } = useDigitarTexto(textoAnalisePlantio);
+    
+  if (loading) {
+    return <LoadingTrator />
+  }  
 
+  const { plantio } = dadosApi.indices;
+  // console.log('dadosApi: ', dadosApi);
   return (
     <>
       <BotaoVoltar onClick={() => navigate('/indicadores')} />
