@@ -6,6 +6,9 @@ import { useWeather } from '../../hooks/useWeather'
 import LoadingTrator from '../../assets/LoadingTrator/LoadingTrator'
 import { getCurrentDate, getDateDaysAgo } from '../../util/getDate'
 import { CloudHail, CloudRainWind, Feather, FolderClock, Sun, ThermometerSun, Umbrella } from 'lucide-react'
+import RainChart from '../../componentes/HistoricalCharts/RainChart'
+import TemperatureChart from '../../componentes/HistoricalCharts/TemperatureChart'
+import EtoChart from '../../componentes/HistoricalCharts/EtoChart'
 
 const Historico = () => {
   const { historical, carregarHistorical, loadingHistorical, historicalError, location } = useWeather();
@@ -53,29 +56,33 @@ const Historico = () => {
         </div>
         <div className='painel-chuvaAcumulada'>
           <p><Umbrella /> Chuva Acumulada</p>
-          <p>128mm</p>
+          <p>{historical?.historico.resumo.chuvaAcumulada.toFixed(1)} mm</p>
         </div>
         <div className='painel-diasComChuva'>
           <p><CloudRainWind /> Dias com Chuva</p>
-          <p>4</p>
+          <p>{historical?.historico.resumo.diasComChuva} dias</p>
         </div>
         <div className='painel-diasSecos'>
           <p><Sun /> Dias Secos</p>
-          <p>4</p>
+          <p>{historical?.historico.resumo.diasSecos} dias</p>
         </div>
         <div className='painel-maiorChuva'>
           <p><CloudHail /> Maior Chuva</p>
-          <p>49mm</p>
+          <p>{historical?.historico.resumo.maiorChuva} mm</p>
         </div>
         <div className='painel-temperaturaMedia'>
           <p><ThermometerSun /> Temperatura Média</p>
-          <p>21</p>
+          <p>{historical?.historico.resumo.temperaturaMedia.toFixed(1)} C</p>
         </div>
         <div className='painel-etoMedio'>
           <p><Feather /> ETo Médio</p>
-          <p>27.8</p>
+          <p>{historical?.historico.resumo.etoMedio.toFixed(1)} mm/Dia</p>
         </div>
       </div>
+
+      <RainChart  data={historical?.historico?.historicoDias}/>
+      <TemperatureChart data={historical?.historico?.historicoDias} />
+      <EtoChart data={historical?.historico?.historicoDias}/>
     </>
   )
 }
