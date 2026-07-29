@@ -47,7 +47,7 @@ const Indicadores = () => {
               <div className='card-chuva'>
                 <CloudHail />
                 <small>Chuva (7d)</small>
-                <h2>{plantio.precipitacaoAcumulada}mm</h2>
+                <h2>{plantio.precipitacaoAcumulada.toFixed(1)}mm</h2>
               </div>
               <div className='card-temperatura'>
                 <ThermometerSun />
@@ -86,7 +86,7 @@ const Indicadores = () => {
               <div className='card-temperatura'>
                 <Droplets />
                 <small>Umidade (7d)</small>
-                <h2>{mediaUmidade}%</h2>
+                <h2>{mediaUmidade.toFixed(1)}%</h2>
               </div>            
           </div>
           <button 
